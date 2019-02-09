@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'blog';
+  heroImageAlt = 'Angular Logo';
+  heroImageSrc = '/assets/images/angular-logo.svg';
+  heroTitle = 'My Notes';
+  heroSummary = 'A software development notebook.';
 }
