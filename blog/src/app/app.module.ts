@@ -11,6 +11,7 @@ import { HeadingThreeComponent } from './shared/heading-three/heading-three.comp
 import { HeadingFourComponent } from './shared/heading-four/heading-four.component';
 import { HeadingFiveComponent } from './shared/heading-five/heading-five.component';
 import { HeadingSixComponent } from './shared/heading-six/heading-six.component';
+import { DescriptionComponent } from './shared/description/description.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HeadingSixComponent } from './shared/heading-six/heading-six.component'
     HeadingThreeComponent,
     HeadingFourComponent,
     HeadingFiveComponent,
-    HeadingSixComponent
+    HeadingSixComponent,
+    DescriptionComponent
   ],
   imports: [
     BrowserModule
