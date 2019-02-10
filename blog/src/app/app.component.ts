@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   heroImageAlt = 'Angular Logo';
   heroImageSrc = '/assets/images/angular-logo.svg';
-  heroTitle = 'My Notes';
+  heroHeading = 'My Notes';
   heroSummary = 'A software development notebook.';
 }

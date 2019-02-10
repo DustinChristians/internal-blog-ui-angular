@@ -6,8 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./hero-section.component.scss']
 })
 export class HeroSectionComponent {
+  @Input() heading;
   @Input() imageAlt;
   @Input() imageSrc;
   @Input() summary;
-  @Input() title;
 }
