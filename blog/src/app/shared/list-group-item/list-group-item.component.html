@@ -1,6 +1,9 @@
 <a
-  href="#"
+  [href]='listGroupItem.path'
   class="list-group-item list-group-item-action flex-column align-items-start"
 >
-  <div class="d-flex w-100 justify-content-between"></div>
+  <div class="d-flex w-100 justify-content-between">
+    <app-heading-five [heading]="listGroupItem.heading"></app-heading-five>
+  </div>
+  <app-description [description]="listGroupItem.description"></app-description>
 </a>
