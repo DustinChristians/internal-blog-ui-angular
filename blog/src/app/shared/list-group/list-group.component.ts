@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { IListGroupItem } from '../list-group-item/list-group-item';
 
 @Component({
   selector: 'app-list-group',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-group.component.scss']
 })
 export class ListGroupComponent implements OnInit {
+
+  @Input() listGroupItems: IListGroupItem;
 
   constructor() { }
 
