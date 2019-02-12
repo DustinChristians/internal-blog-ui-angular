@@ -8,24 +8,22 @@ import { IListGroupItem } from './shared/list-group-item/list-group-item';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
   categories: IListGroupItem[] = [];
   errorMessage = '';
-
-  constructor(private listGroupService: ListGroupService) {
-  }
-
   heroImageAlt = 'Angular Logo';
   heroImageSrc = '/assets/images/angular-logo.svg';
   heroHeading = 'My Notes';
   heroSummary = 'A software development notebook.';
+  private categoriesUrl = '/api/categories/categorygroups.json';
+
+  constructor(private listGroupService: ListGroupService) {}
 
   ngOnInit() {
-    this.listGroupService.getListGroups().subscribe(
+    this.listGroupService.getListGroups(this.categoriesUrl).subscribe(
       listGroupItems => {
         this.categories = listGroupItems;
       },
-      error => this.errorMessage = error as any
+      error => (this.errorMessage = error as any)
     );
   }
 }

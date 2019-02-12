@@ -7,11 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ListGroupService {
-  private groupListItemsUrl = '/api/categories/categorygroups.json';
-
   constructor(private http: HttpClient) {}
 
-  getListGroups(): Observable<IListGroupItem[]> {
-    return this.http.get<IListGroupItem[]>(this.groupListItemsUrl);
+  getListGroups(url: string): Observable<IListGroupItem[]> {
+    return this.http.get<IListGroupItem[]>(url);
   }
 }
