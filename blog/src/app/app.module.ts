@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeroSectionComponent } from './shared/hero-section/hero-section.component';
@@ -32,7 +33,8 @@ import { HeroSectionHeadingComponent } from './shared/hero-section-heading/hero-
     HeroSectionHeadingComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

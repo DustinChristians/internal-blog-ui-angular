@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IListGroupItem } from '../list-group-item/list-group-item';
+import { ListGroupService } from './list-group.service';
 
 @Component({
   selector: 'app-list-group',
@@ -8,11 +9,12 @@ import { IListGroupItem } from '../list-group-item/list-group-item';
 })
 export class ListGroupComponent implements OnInit {
 
-  @Input() listGroupItems: IListGroupItem;
+  @Input() listGroupItems: IListGroupItem[];
 
-  constructor() { }
+  constructor(private listGroupService: ListGroupService) { }
 
-  ngOnInit() {
-  }
+   ngOnInit() {
+
+   }
 
 }

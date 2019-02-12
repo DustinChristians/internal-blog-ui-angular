@@ -10,6 +10,7 @@ import { IListGroupItem } from './shared/list-group-item/list-group-item';
 export class AppComponent implements OnInit {
 
   categories: IListGroupItem[] = [];
+  errorMessage = '';
 
   constructor(private listGroupService: ListGroupService) {
   }
@@ -19,7 +20,12 @@ export class AppComponent implements OnInit {
   heroHeading = 'My Notes';
   heroSummary = 'A software development notebook.';
 
-  ngOnInit(): void {
-    this.categories = this.listGroupService.getListGroups();
+  ngOnInit() {
+    this.listGroupService.getListGroups().subscribe(
+      listGroupItems => {
+        this.categories = listGroupItems;
+      },
+      error => this.errorMessage = error as any
+    );
   }
 }
