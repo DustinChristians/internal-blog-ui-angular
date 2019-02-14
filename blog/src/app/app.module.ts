@@ -38,7 +38,10 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot([{ path: '**', component: HomeComponent }])
+    RouterModule.forRoot([
+      { path: '', component: HomeComponent },
+      { path: '**', component: HomeComponent }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
