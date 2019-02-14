@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeroSectionComponent } from './shared/hero-section/hero-section.component';
@@ -32,11 +33,8 @@ import { HeroSectionHeadingComponent } from './shared/hero-section-heading/hero-
     HeroSectionSummaryComponent,
     HeroSectionHeadingComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot([])],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
