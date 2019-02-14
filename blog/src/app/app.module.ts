@@ -16,6 +16,7 @@ import { HeadingSixComponent } from './shared/heading-six/heading-six.component'
 import { DescriptionComponent } from './shared/description/description.component';
 import { HeroSectionSummaryComponent } from './shared/hero-section-summary/hero-section-summary.component';
 import { HeroSectionHeadingComponent } from './shared/hero-section-heading/hero-section-heading.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -31,9 +32,14 @@ import { HeroSectionHeadingComponent } from './shared/hero-section-heading/hero-
     HeadingSixComponent,
     DescriptionComponent,
     HeroSectionSummaryComponent,
-    HeroSectionHeadingComponent
+    HeroSectionHeadingComponent,
+    HomeComponent
   ],
-  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot([])],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    RouterModule.forRoot([{ path: '**', component: HomeComponent }])
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
