@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   heroImageSrc = '/assets/images/angular-logo.svg';
   heroHeading = 'My Notes';
   heroSummary = 'A software development notebook.';
-  private categoriesUrl = '/api/categories/categorygroups.json';
+  private categoriesUrl = '/api/categories/category-groups.json';
 
   constructor(private listGroupService: ListGroupService) {}
 
