@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { NotFoundComponent } from '../not-found/not-found.component';
+import { CmsService } from '../core/cms/cms.service';
 
 @Component({
   selector: 'app-default-component',
@@ -19,6 +20,7 @@ export class DefaultComponent implements OnInit {
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
+    private cmsService: CmsService,
     private router: Router,
     private route: ActivatedRoute,
     private viewContainerRef: ViewContainerRef
@@ -33,6 +35,7 @@ export class DefaultComponent implements OnInit {
 
   getComponent() {
     console.log(this.router.url);
+    console.log(this.cmsService.cmsApiService.getEntryById(''));
   }
 
   setComponent() {
@@ -42,6 +45,7 @@ export class DefaultComponent implements OnInit {
     if (this.instance) {
       this.instance.destroy();
     }
+
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
       this.component
     );
