@@ -1,15 +1,15 @@
 import { Injectable, InjectionToken } from '@angular/core';
 import { createClient, Entry } from 'contentful';
 import { config } from './contentful.config';
-import { ICmsApiService } from '../cms/cms-api.service';
+import { IContentApiService } from '../content/content-api.service';
 
-export const CmsApiService = new InjectionToken('CmsApiService', {
+export const ContentApiService = new InjectionToken('ContentApiService', {
   providedIn: 'root',
   factory: () => new ContentfulService()
 });
 
 @Injectable()
-export class ContentfulService implements ICmsApiService {
+export class ContentfulService implements IContentApiService {
   private contentDeliveryApiClient = createClient({
     space: config.space,
     accessToken: config.accessToken
@@ -17,11 +17,11 @@ export class ContentfulService implements ICmsApiService {
 
   constructor() {}
 
-  async getEntryByCategory(category, query?: object): Promise<Entry<any>[]> {
+  async getEntryByType(type, query?: object): Promise<Entry<any>[]> {
     const result = await this.contentDeliveryApiClient.getEntries(
       Object.assign(
         {
-          content_type: category
+          content_type: type
         },
         query
       )
