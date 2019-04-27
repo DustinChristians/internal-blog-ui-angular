@@ -4,6 +4,7 @@ import { ContentService, Entry } from '../core/content/content.service';
 import { CmsHeroImage } from '../core/models/cms/hero/cms.hero.image';
 import { CmsImage } from '../core/models/cms/image/cms.image';
 import { BlogPostCategory } from '../core/models/cms/blogpost_category/cms.blogpost.category';
+import { HeroSection } from '../shared/hero-section/hero-section.model';
 
 @Component({
   selector: 'app-home',
@@ -13,10 +14,7 @@ import { BlogPostCategory } from '../core/models/cms/blogpost_category/cms.blogp
 export class HomeComponent implements OnInit {
   categories: IListGroupItem[] = [];
   errorMessage = '';
-  heroImageAlt = '';
-  heroImageSrc = '';
-  heroHeading = '';
-  heroSummary = '';
+  heroSection: HeroSection = new HeroSection();
 
   constructor(private contentService: ContentService) {}
 
@@ -37,14 +35,14 @@ export class HomeComponent implements OnInit {
   }
 
   private populateHero(heroImage: CmsHeroImage) {
-    this.heroHeading = heroImage.fields.heading;
-    this.heroSummary = heroImage.fields.summary;
+    this.heroSection.heading = heroImage.fields.heading;
+    this.heroSection.summary = heroImage.fields.summary;
     this.populateHeroImage(heroImage.fields.image);
   }
 
   private populateHeroImage(image: CmsImage) {
-    this.heroImageAlt = image.fields.description;
-    this.heroImageSrc = image.fields.file.url;
+    this.heroSection.alt = image.fields.description;
+    this.heroSection.src = image.fields.file.url;
   }
 
   private populateCategories(blogPostCategories: Array<BlogPostCategory>) {

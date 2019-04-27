@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HeroSection } from './hero-section.model';
 
 @Component({
   selector: 'app-hero-section',
@@ -6,8 +7,5 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./hero-section.component.scss']
 })
 export class HeroSectionComponent {
-  @Input() heading;
-  @Input() imageAlt;
-  @Input() imageSrc;
-  @Input() summary;
+  @Input() heroSection: HeroSection;
 }

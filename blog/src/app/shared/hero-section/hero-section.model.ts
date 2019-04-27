@@ -1,5 +1,6 @@
 export class HeroSection {
+  alt: string;
   heading: string;
   summary: string;
-  url: string;
+  src: string;
 }
