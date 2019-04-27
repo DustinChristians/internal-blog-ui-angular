@@ -12,6 +12,7 @@ import { HeroSectionHeadingComponent } from './hero-section-heading/hero-section
 import { HeroSectionSummaryComponent } from './hero-section-summary/hero-section-summary.component';
 import { ListGroupComponent } from './list-group/list-group.component';
 import { ListGroupItemComponent } from './list-group-item/list-group-item.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { ListGroupItemComponent } from './list-group-item/list-group-item.compon
     ListGroupComponent,
     ListGroupItemComponent
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   exports: [
     DescriptionComponent,
     HeadingOneComponent,

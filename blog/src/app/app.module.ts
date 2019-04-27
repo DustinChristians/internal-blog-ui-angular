@@ -7,6 +7,7 @@ import { HomeModule } from './home/home.module';
 import { NotFoundModule } from './not-found/not-found.module';
 import { AppRoutingModule } from './app-routing.module';
 import { DefaultModule } from './default/default.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +17,8 @@ import { DefaultModule } from './default/default.module';
     HomeModule,
     NotFoundModule,
     AppRoutingModule,
-    DefaultModule
+    DefaultModule,
+    RouterModule
   ],
   bootstrap: [AppComponent]
 })
