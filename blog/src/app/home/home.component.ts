@@ -5,6 +5,7 @@ import { CmsHeroImage } from '../core/models/cms/hero/cms.hero.image';
 import { CmsImage } from '../core/models/cms/image/cms.image';
 import { BlogPostCategory } from '../core/models/cms/blogpost_category/cms.blogpost.category';
 import { HeroSection } from '../shared/hero-section/hero-section.model';
+import { CmsMap } from '../core/cms/cms.map';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.contentService.contentApiService
-      .getEntryByType(this.contentService.mapping.types.home)
+      .getEntryByType(CmsMap.types.home)
       .then(
         entries => this.populate(entries),
         error => (this.errorMessage = error as any)
@@ -48,8 +49,6 @@ export class HomeComponent implements OnInit {
   private populateCategories(blogPostCategories: Array<BlogPostCategory>) {
     blogPostCategories.forEach(category =>
       this.categories.push({
-        contentID: category.sys.id,
-        contentType: category.sys.contentType.sys.id,
         description: category.fields.description,
         heading: category.fields.title,
         path: category.fields.slug

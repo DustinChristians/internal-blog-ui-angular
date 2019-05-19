@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
-import { DefaultComponent } from './default/default.component';
+import { BlogpostCategoryComponent } from './blogpost-category/blogpost.category.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: '**', component: DefaultComponent }
+  { path: ':category', component: BlogpostCategoryComponent },
+  { path: ':category/:blogpost', component: BlogpostCategoryComponent },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

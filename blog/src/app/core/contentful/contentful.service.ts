@@ -2,6 +2,7 @@ import { Injectable, InjectionToken } from '@angular/core';
 import { createClient, Entry } from 'contentful';
 import { config } from './contentful.config';
 import { IContentApiService } from '../content/content-api.service';
+import { CmsMap } from '../cms/cms.map';
 
 export const ContentApiService = new InjectionToken('ContentApiService', {
   providedIn: 'root',
@@ -33,13 +34,8 @@ export class ContentfulService implements IContentApiService {
     return await this.contentDeliveryApiClient.getEntry(entryId);
   }
 
-  async getEntryBySlugAndType(
-    slug,
-    type,
-    query?: object
-  ): Promise<Entry<any>[]> {
+  async getEntryBySlugAndType(slug, type, query?: object): Promise<Entry<any>> {
     slug = slug.replace('/', '');
-    console.log('slug: ' + slug);
 
     const result = await this.contentDeliveryApiClient.getEntries(
       Object.assign(
@@ -50,6 +46,22 @@ export class ContentfulService implements IContentApiService {
         query
       )
     );
-    return result.items;
+    return result.items[0];
+  }
+
+  async getBlogPosts(category, query?: object): Promise<Entry<any>[]> {
+    return this.contentDeliveryApiClient
+      .getEntries(
+        Object.assign(
+          {
+            content_type: CmsMap.types.blogPost,
+            'fields.category.sys.contentType.sys.id[match]':
+              CmsMap.types.blogPostCategory,
+            'fields.category.fields.title[match]': category
+          },
+          query
+        )
+      )
+      .then(res => res.items);
   }
 }
