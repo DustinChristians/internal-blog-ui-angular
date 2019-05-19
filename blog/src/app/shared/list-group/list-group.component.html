@@ -1,0 +1,20 @@
+<div class="list-group">
+  <div class="container-fluid">
+    <div
+      *ngFor="let index of listGroupItems; let i = index; let even = even"
+    >
+      <div *ngIf="even" class="row">
+        <div class="col-sm-6">
+          <app-list-group-item
+            [listGroupItem]="listGroupItems[i]"
+          ></app-list-group-item>
+        </div>
+        <div class="col-sm-6" *ngIf='listGroupItems[i+1]'>
+          <app-list-group-item
+          [listGroupItem]="listGroupItems[i+1]"
+          ></app-list-group-item>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

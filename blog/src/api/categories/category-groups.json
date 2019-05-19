@@ -1,0 +1,17 @@
+[
+  {
+    "description": "All about software architecture.",
+    "heading": "Architecture",
+    "path": "/architecture"
+  },
+  {
+    "description": "Information about a software development career.",
+    "heading": "Career",
+    "path": "/career"
+  },
+  {
+    "description": "Information about the Angular framework.",
+    "heading": "Angular",
+    "path": "/angular"
+  }
+]
