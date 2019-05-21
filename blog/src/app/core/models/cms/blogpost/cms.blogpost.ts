@@ -1,7 +1,7 @@
 import { Sys } from 'contentful';
-import { BlogPostFields } from './cms.blogpost.fields';
+import { CmsBlogPostFields } from './cms.blogpost.fields';
 
-export interface BlogPost {
+export interface CmsBlogPost {
   sys: Sys;
-  fields: BlogPostFields;
+  fields: CmsBlogPostFields;
 }

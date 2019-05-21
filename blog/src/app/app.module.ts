@@ -9,10 +9,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { BlogpostCategoryModule } from './blogpost-category/blogpost.category.module';
 import { BlogpostCategoryComponent } from './blogpost-category/blogpost.category.component';
+import { BlogpostComponent } from './blogpost/blogpost.component';
+import { BlogpostModule } from './blogpost/blogpost.module';
 
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [BlogpostCategoryComponent],
+  entryComponents: [BlogpostCategoryComponent, BlogpostComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -20,7 +22,8 @@ import { BlogpostCategoryComponent } from './blogpost-category/blogpost.category
     NotFoundModule,
     AppRoutingModule,
     RouterModule,
-    BlogpostCategoryModule
+    BlogpostCategoryModule,
+    BlogpostModule
   ],
   bootstrap: [AppComponent]
 })

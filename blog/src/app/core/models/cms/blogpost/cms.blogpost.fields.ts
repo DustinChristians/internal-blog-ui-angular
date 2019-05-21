@@ -1,13 +1,15 @@
 import { CmsHeroImage } from '../hero/cms.hero.image';
+import { CmsBlogPostCategory } from '../blogpost_category/cms.blogpost.category';
+import { CmsAuthor } from '../author/cms.author';
 
-export interface BlogPostFields {
+export interface CmsBlogPostFields {
   title: string;
   slug: string;
-  category: string;
-  description: string;
+  category: CmsBlogPostCategory;
   heroImage: CmsHeroImage;
+  description: string;
   body: string;
-  author: string;
+  author: CmsAuthor;
   publishDate: string;
-  tags: string;
+  tags: string[];
 }

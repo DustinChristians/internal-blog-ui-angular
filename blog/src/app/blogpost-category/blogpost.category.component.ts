@@ -6,7 +6,7 @@ import { CmsImage } from '../core/models/cms/image/cms.image';
 import { HeroSection } from '../shared/hero-section/hero-section.model';
 import { ActivatedRoute } from '@angular/router';
 import { CmsMap } from '../core/cms/cms.map';
-import { BlogPost } from '../core/models/cms/blogpost/cms.blogpost';
+import { CmsBlogPost } from '../core/models/cms/blogpost/cms.blogpost';
 
 @Component({
   selector: 'app-blogpost.category',
@@ -66,7 +66,7 @@ export class BlogpostCategoryComponent implements OnInit {
     this.heroSection.src = image.fields.file.url;
   }
 
-  private populateBlogPosts(blogPosts: Array<BlogPost>) {
+  private populateBlogPosts(blogPosts: Array<CmsBlogPost>) {
     blogPosts.forEach(blogPost =>
       this.blogPosts.push({
         description: blogPost.fields.description,

@@ -1,4 +1,4 @@
-export interface BlogPostCategoryFields {
+export interface CmsBlogPostCategoryFields {
   title: string;
   slug: string;
   description: string;
