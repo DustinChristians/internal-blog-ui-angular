@@ -3,4 +3,4 @@
 <div>Category: {{ blogPost?.fields?.category?.fields?.title }}</div>
 <div>Author: {{ blogPost?.fields?.author?.fields?.name }}</div>
 <div>Publish Date: {{ blogPost?.fields?.publishDate }}</div>
-<div>{{ blogPost?.fields?.body }}</div>
+<div [innerHtml]="blogPost?.fields?.body | markdownToHtml"></div>
