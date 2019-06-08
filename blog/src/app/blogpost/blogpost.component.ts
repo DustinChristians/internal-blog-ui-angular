@@ -6,6 +6,7 @@ import { HeroSection } from '../shared/hero-section/hero-section.model';
 import { CmsHeroImage } from '../core/models/cms/hero/cms.hero.image';
 import { CmsImage } from '../core/models/cms/image/cms.image';
 import { BlogPost } from './blogpost.model';
+import { ErrorService } from '../core/error/error.service';
 
 @Component({
   selector: 'app-blogpost',
@@ -19,6 +20,7 @@ export class BlogpostComponent implements OnInit {
 
   constructor(
     private contentService: ContentService,
+    private errorService: ErrorService,
     private route: ActivatedRoute
   ) {}
 
@@ -32,10 +34,18 @@ export class BlogpostComponent implements OnInit {
         this.route.snapshot.params.blogpost,
         CmsMap.types.blogPost
       )
-      .then(
-        entry => this.populateBlogPost(entry),
-        error => (this.errorMessage = error as any)
-      );
+      .then(entry => {
+        if (!this.errorService.isEntryError(entry)) {
+          this.populateBlogPost(entry);
+        }
+      })
+      .catch(error => {
+        this.entryErrorHandler(error);
+      });
+  }
+
+  private entryErrorHandler(error: any) {
+    console.log('could not find data ' + error);
   }
 
   private populateBlogPost(entry: Entry<any>) {

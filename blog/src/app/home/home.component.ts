@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
       this.categories.push({
         description: category.fields.description,
         heading: category.fields.title,
-        path: category.fields.slug
+        path: '/category/' + category.fields.slug
       })
     );
   }
