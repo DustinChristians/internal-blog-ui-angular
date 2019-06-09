@@ -1,13 +1,9 @@
 <a
   [routerLink]="listGroupItem.path"
-  [state]="{
-    contentType: listGroupItem.contentType,
-    contentID: listGroupItem.contentID
-  }"
   class="list-group-item list-group-item-action flex-column align-items-start"
 >
   <div class="d-flex w-100 justify-content-between">
-    <app-heading-five [heading]="listGroupItem.heading"></app-heading-five>
+    <app-heading-three [heading]="listGroupItem.heading"></app-heading-three>
   </div>
   <app-description [description]="listGroupItem.description"></app-description>
 </a>
