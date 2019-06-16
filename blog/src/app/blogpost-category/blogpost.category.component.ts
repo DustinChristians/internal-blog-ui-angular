@@ -6,7 +6,8 @@ import { CmsImage } from '../core/models/cms/image/cms.image';
 import { HeroSection } from '../shared/hero-section/hero-section.model';
 import { ActivatedRoute } from '@angular/router';
 import { CmsMap } from '../core/cms/cms.map';
-import { BlogPost } from '../core/models/cms/blogpost/cms.blogpost';
+import { CmsBlogPost } from '../core/models/cms/blogpost/cms.blogpost';
+import { ErrorService } from '../core/error/error.service';
 
 @Component({
   selector: 'app-blogpost.category',
@@ -20,6 +21,7 @@ export class BlogpostCategoryComponent implements OnInit {
 
   constructor(
     private contentService: ContentService,
+    private errorService: ErrorService,
     private route: ActivatedRoute
   ) {}
 
@@ -35,7 +37,11 @@ export class BlogpostCategoryComponent implements OnInit {
         CmsMap.types.blogPostCategory
       )
       .then(
-        entry => this.populateCategory(entry),
+        entry => {
+          if (!this.errorService.isEntryError(entry)) {
+            this.populateCategory(entry);
+          }
+        },
         error => (this.errorMessage = error as any)
       );
   }
@@ -66,12 +72,12 @@ export class BlogpostCategoryComponent implements OnInit {
     this.heroSection.src = image.fields.file.url;
   }
 
-  private populateBlogPosts(blogPosts: Array<BlogPost>) {
+  private populateBlogPosts(blogPosts: Array<CmsBlogPost>) {
     blogPosts.forEach(blogPost =>
       this.blogPosts.push({
         description: blogPost.fields.description,
         heading: blogPost.fields.title,
-        path: blogPost.fields.slug
+        path: '/blogpost/' + blogPost.fields.slug
       })
     );
   }

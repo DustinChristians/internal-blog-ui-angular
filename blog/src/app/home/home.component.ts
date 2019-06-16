@@ -3,7 +3,7 @@ import { IListGroupItem } from '../shared/list-group-item/list-group-item';
 import { ContentService, Entry } from '../core/content/content.service';
 import { CmsHeroImage } from '../core/models/cms/hero/cms.hero.image';
 import { CmsImage } from '../core/models/cms/image/cms.image';
-import { BlogPostCategory } from '../core/models/cms/blogpost_category/cms.blogpost.category';
+import { CmsBlogPostCategory } from '../core/models/cms/blogpost_category/cms.blogpost.category';
 import { HeroSection } from '../shared/hero-section/hero-section.model';
 import { CmsMap } from '../core/cms/cms.map';
 
@@ -46,12 +46,12 @@ export class HomeComponent implements OnInit {
     this.heroSection.src = image.fields.file.url;
   }
 
-  private populateCategories(blogPostCategories: Array<BlogPostCategory>) {
+  private populateCategories(blogPostCategories: Array<CmsBlogPostCategory>) {
     blogPostCategories.forEach(category =>
       this.categories.push({
         description: category.fields.description,
         heading: category.fields.title,
-        path: category.fields.slug
+        path: '/category/' + category.fields.slug
       })
     );
   }

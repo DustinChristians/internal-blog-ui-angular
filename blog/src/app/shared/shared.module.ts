@@ -13,6 +13,7 @@ import { HeroSectionSummaryComponent } from './hero-section-summary/hero-section
 import { ListGroupComponent } from './list-group/list-group.component';
 import { ListGroupItemComponent } from './list-group-item/list-group-item.component';
 import { RouterModule } from '@angular/router';
+import { MarkdownToHtmlPipe } from './pipes/markdown-to-html/markdown-to-html.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RouterModule } from '@angular/router';
     HeroSectionHeadingComponent,
     HeroSectionSummaryComponent,
     ListGroupComponent,
-    ListGroupItemComponent
+    ListGroupItemComponent,
+    MarkdownToHtmlPipe
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -42,7 +44,8 @@ import { RouterModule } from '@angular/router';
     HeroSectionHeadingComponent,
     HeroSectionSummaryComponent,
     ListGroupComponent,
-    ListGroupItemComponent
+    ListGroupItemComponent,
+    MarkdownToHtmlPipe
   ]
 })
 export class SharedModule {}

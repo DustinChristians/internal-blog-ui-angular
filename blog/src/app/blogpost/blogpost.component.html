@@ -1,0 +1,8 @@
+<app-hero-section [heroSection]="heroSection"></app-hero-section>
+<div class="container-fluid">
+  <h1>{{ blogPost?.fields?.title }}</h1>
+  <div>Category: {{ blogPost?.fields?.category?.fields?.title }}</div>
+  <div>Author: {{ blogPost?.fields?.author?.fields?.name }}</div>
+  <div>Publish Date: {{ blogPost?.fields?.publishDate | date }}</div>
+  <div [innerHtml]="blogPost?.fields?.body | markdownToHtml"></div>
+</div>
