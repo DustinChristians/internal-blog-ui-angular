@@ -13,7 +13,7 @@ import { ErrorService } from '../core/error/error.service';
   templateUrl: './blogpost.component.html',
   styleUrls: ['./blogpost.component.scss']
 })
-export class BlogpostComponent implements OnInit, AfterViewInit {
+export class BlogpostComponent implements OnInit {
   blogPost: BlogPost = new BlogPost();
   errorMessage: string;
   heroSection: HeroSection = new HeroSection();
