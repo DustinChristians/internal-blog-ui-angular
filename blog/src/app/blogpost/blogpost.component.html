@@ -1,8 +1,31 @@
-<app-hero-section [heroSection]="heroSection"></app-hero-section>
-<div class="container-fluid">
-  <h1>{{ blogPost?.fields?.title }}</h1>
-  <div>Category: {{ blogPost?.fields?.category?.fields?.title }}</div>
-  <div>Author: {{ blogPost?.fields?.author?.fields?.name }}</div>
-  <div>Publish Date: {{ blogPost?.fields?.publishDate | date }}</div>
-  <div [innerHtml]="blogPost?.fields?.body | markdownToHtml"></div>
+<app-hero-section
+  [heroSection]="heroSection"
+  id="js-hero-section"
+></app-hero-section>
+<div class="content">
+  <div class="container-fluid">
+    <h1 class="content-title">{{ blogPost?.fields?.title }}</h1>
+    <div class="content-header">
+      <div class="content-author">
+        <img
+          class="avatar"
+          src="{{ blogPost?.fields?.author?.fields?.image?.fields?.file?.url }}"
+        />
+      </div>
+      <div class="padding-top-2 padding-left-15">
+        <div class="content-author-name padding-bottom-3">
+          {{ blogPost?.fields?.author?.fields?.name }}
+        </div>
+        <div class="date">
+          {{ blogPost?.fields?.publishDate | date }}
+        </div>
+      </div>
+    </div>
+    <div class="content-body">
+      <div [innerHtml]="blogPost?.fields?.body | markdownToHtml"></div>
+    </div>
+  </div>
+  <aside class="social-sidebar hidden" id="js-social-sidebar">
+    Categories: {{ blogPost?.fields?.category?.fields?.title }}
+  </aside>
 </div>
