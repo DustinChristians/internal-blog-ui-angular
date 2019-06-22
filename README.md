@@ -1,2 +1,2 @@
 # internal-blog-ui-angular
-An angular user interface for my internal blog project
+An angular user interface that integrates with Contentful CMS for my internal blog project.
