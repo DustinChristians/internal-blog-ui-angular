@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
 import { ContentService, Entry } from '../core/content/content.service';
 import { ActivatedRoute } from '@angular/router';
 import { CmsMap } from '../core/cms/cms.map';
@@ -17,12 +17,31 @@ export class BlogpostComponent implements OnInit {
   blogPost: BlogPost = new BlogPost();
   errorMessage: string;
   heroSection: HeroSection = new HeroSection();
+  sidebar;
 
   constructor(
     private contentService: ContentService,
     private errorService: ErrorService,
     private route: ActivatedRoute
   ) {}
+
+  // for window scroll events
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    this.displaySidebar();
+  }
+
+  displaySidebar() {
+    const hero = document.getElementById('js-hero-section');
+    const sidebar = document.getElementById('js-social-sidebar');
+    const heroRect = hero.getBoundingClientRect();
+
+    if (window.scrollY - heroRect.height > 0) {
+      sidebar.classList.remove('hidden');
+    } else {
+      sidebar.classList.add('hidden');
+    }
+  }
 
   ngOnInit() {
     this.getEntry();
