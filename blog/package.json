@@ -24,7 +24,7 @@
     "contentful": "^7.8.0",
     "core-js": "^2.6.9",
     "font-awesome": "^4.7.0",
-    "marked": "^0.6.2",
+    "marked": "^0.7.0",
     "rxjs": "~6.5.2",
     "stylelint": "^9.10.1",
     "stylelint-order": "^3.0.0",
